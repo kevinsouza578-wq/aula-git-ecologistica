@@ -31,7 +31,8 @@ Abra `http://localhost:3000` no navegador. Endpoints disponíveis:
 
 - `GET /` — identificação do projeto e lista de endpoints;
 - `GET /health` — estado do serviço;
-- `GET /rotas` — lista das três rotas cadastradas.
+- `GET /rotas` — lista das três rotas cadastradas;
+- `GET /rotas/ROTA-001` — detalhes de uma rota pelo identificador (funcionalidade da branch `feature/consulta-rota-id`).
 
 Para alterar a porta, defina a variável de ambiente `PORT` antes de executar.
 
