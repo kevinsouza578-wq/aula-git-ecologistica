@@ -21,7 +21,7 @@ const servidor = http.createServer((req, res) => {
     return responderJson(res, 200, {
       projeto: 'EcoLogística',
       descricao: 'MVP de consulta de rotas de entrega',
-      endpoints: ['GET /', 'GET /health', 'GET /rotas']
+      endpoints: ['GET /', 'GET /health', 'GET /rotas', 'GET /rotas/:id']
     });
   }
 
@@ -29,10 +29,18 @@ const servidor = http.createServer((req, res) => {
     return responderJson(res, 200, { status: 'ok' });
   }
 
-  if (url.pathname === '/rotas') {
+  if (url.pathname === '/rotas' || url.pathname.startsWith('/rotas/')) {
     try {
       const dados = JSON.parse(readFileSync(arquivoRotas, 'utf8'));
-      return responderJson(res, 200, dados);
+      if (url.pathname === '/rotas') {
+        return responderJson(res, 200, dados);
+      }
+
+      const id = url.pathname.slice('/rotas/'.length);
+      const rota = dados.rotas.find(item => item.id === id);
+      return rota
+        ? responderJson(res, 200, rota)
+        : responderJson(res, 404, { erro: 'Rota nao encontrada', id });
     } catch (erro) {
       console.error('Falha ao carregar as rotas:', erro.message);
       return responderJson(res, 500, { erro: 'Nao foi possivel carregar as rotas' });
