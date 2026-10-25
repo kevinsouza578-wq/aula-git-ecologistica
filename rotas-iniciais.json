@@ -1,0 +1,31 @@
+{
+  "projeto": "EcoLogística",
+  "versao": 1,
+  "observacao": "Dados ficticios para demonstracao academica; nao sao rotas otimizadas.",
+  "rotas": [
+    {
+      "id": "ROTA-001",
+      "nome": "Entregas Centro",
+      "origem": "Centro de distribuicao EcoLogistica",
+      "paradas": ["Centro", "Bau", "Porto"],
+      "periodo": "manha",
+      "status": "planejada"
+    },
+    {
+      "id": "ROTA-002",
+      "nome": "Entregas Regiao Norte",
+      "origem": "Centro de distribuicao EcoLogistica",
+      "paradas": ["Morada da Serra", "CPA", "Jardim Vitoria"],
+      "periodo": "tarde",
+      "status": "planejada"
+    },
+    {
+      "id": "ROTA-003",
+      "nome": "Entregas Regiao Sul",
+      "origem": "Centro de distribuicao EcoLogistica",
+      "paradas": ["Coxipo", "Parque Cuiaba", "Distrito Industrial"],
+      "periodo": "tarde",
+      "status": "planejada"
+    }
+  ]
+}
